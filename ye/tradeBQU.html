@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta HTTP-EQUIV="Expires" CONTENT="-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="your keywords">
+    <meta name="description" content="your description">
+    <meta name="author" content="author,email address">
+    <meta name="robots" content="index,follow">
+    <title>OTC-trade</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/star-rating.css" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../js/font-awesome/css/all.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/trade.css">
+    <link rel="stylesheet" href="../css/chart.css"/>
+
+
+</head>
+
+<body>
+<div class="readeBox">
+    <div class="header">
+        <div class="heaerFirst">
+            <div class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    <img src="../img/logo.png" class="logo">
+                    <img src="../img/top.png" class="lineimg">
+                </a>
+                <ul class="dropdown-menu hotTitle">
+                    <li>
+                        <a>首页</a>
+                    </li>
+                    <li>
+                        <a>币行情</a>
+                    </li>
+                    <li>
+                        <a>热门交易</a>
+                    </li>
+                    <li>
+                        <a>跟随者</a>
+                    </li>
+                    <li>
+                        <a>交易动态</a>
+                    </li>
+                    <li>
+                        <a>聊天室</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="headerSecond">
+            <img src="../img/ye/btc.png" alt="" id="currency_img">
+            <span id="currency_pid"></span>
+        </div>
+        <div class="selectBox clearFloat left">
+            <div class="dropdown selectBox">
+                <a class="dropdown-toggle choice-btn" role="button"></a>
+            </div>
+        </div>
+        <div class="exchange left">
+            <p class="dollar" id="currency_money">0</p>
+            <p class="rmb" id="currency_cny">≈ ¥0</p>
+        </div>
+        <div class="tcontent">
+					<span>
+          <i class="name">涨跌幅:</i>
+          <i class="value" id="currency_bfb">0%</i>
+        </span>
+            <span>
+          <i class="name">最高价:</i>
+          <i class="value" id="currency_max">0</i>
+        </span>
+            <span>
+          <i class="name">最低价:</i>
+          <i class="value" id="currency_min">0</i>
+        </span>
+            <span>
+          <i class="name">24H成交量:</i>
+          <i class="value1" style="color: #fff;" id="currency_volume">0</i>
+        </span>
+        </div>
+        <div class="internationalization">
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+							<span>中文
+              <span class="caret"></span>
+							</span>
+                </a>
+                <ul class="dropdown-menu language">
+                    <li>
+                        <a href="#">中文</a>
+                    </li>
+                    <li>
+                        <a href="#">English</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="peroInf">
+            <img src="../img/head.png"> 1249******9438
+        </div>
+        <div class="zichan">
+            <i class="fas fa-wallet"></i>资产
+        </div>
+        <div class="dingdan">
+            <i class="fas fa-clipboard-list"></i>订单
+        </div>
+    </div>
+    <div class="rightBox">
+        <h4>
+        <span class="header-left">
+          <span class="dxt lineBtn active-line" data-id="dxtBox">单线图</span>
+          <span class="sxt lineBtn" data-id="sxtBox">深线图</span>
+          <span class="kxt lineBtn none" data-id="kxtBox">K线图</span>
+        </span>
+            <span class="header-right">
+          <span>
+            <button type="button" class="btn btn-default changeCanvas active-btn" data-id="jj">简洁版</button>
+            <button type="button" class="btn btn-default changeCanvas" data-id="zy">专业版</button>
+          </span>
+        </span>
+        </h4>
+        <div class="rightTop">
+            <div class="rightTopHeader clearFloat">
+                <div class="left rTime">
+                </div>
+            </div>
+            <!--单线图-->
+            <div class="canvasBox" id="dxtBox" style="width: 100%;height: 400px;overflow: hidden"></div>
+            <!--深线图-->
+            <div class="canvasBox none" id="sxtBox" style="width: 100%;height: 400px;overflow: hidden"></div>
+            <!--K线图-->
+            <div class="canvasBox none" id="kxtBox" style="width: 100%;height: 400px;overflow: hidden"></div>
+        </div>
+        <div class="rightBottom">
+            <div class="rightR">
+                <h4>
+            <span class="left rbTitleLeft">
+              <span class="rbActiveTitle rbActiveone" onclick="activeRb(this,'rbActiveoneContent')">限价委托记录</span>
+              <span class="rbActivetow" onclick="activeRb(this,'rbActivetowContent')">计划委托记录</span>
+              <span class="rbActivethree" onclick="activeRb(this,'rbActivethreeContent')">历史委托记录</span>
+            </span>
+                    <span class="right rbTitleRight">
+              <span class="moreRecord">更多委托记录</span>
+              <span data-toggle="modal" onclick="chexiao()">全部撤单</span>
+            </span>
+                </h4>
+                <div class="rbActiveContent rbActiveoneContent">
+                    <ul class="title bqurcontenttitle">
+                        <li class="bqurcontent-1">委托时间</li>
+                        <li class="bqurcontent-2 sepceilBQ">委托数量/已成交</li>
+                        <li class="bqurcontent-3 sepceilBQ">委托价格/成交底价</li>
+                        <li class="bqurcontent-2">成交总额</li>
+                        <li class="bqurcontent-8">类型</li>
+                        <li class="bqurcontent-8">状态</li>
+                        <li class="bqurcontent-8">订单来源</li>
+                        <li class="bqurcontent-8">操作</li>
+                    </ul>
+                    <div class="rightBottomContent" id="user_sell">
+
+                    </div>
+                </div>
+                <div class="rbActiveContent rbActivetowContent">
+                    <ul class="title bqurcontenttitle">
+                        <li class="bqurcontent-1">委托时间</li>
+                        <li class="bqurcontent-2">委托量</li>
+                        <li class="bqurcontent-3">触发价格</li>
+                        <li class="bqurcontent-3">委托价格</li>
+                        <li class="bqurcontent-3">真实触发价</li>
+                        <li class="bqurcontent-8">状态</li>
+                        <li class="bqurcontent-8">订单来源</li>
+                        <li class="bqurcontent-8">操作</li>
+                    </ul>
+                    <div class="rightBottomContent" id="plan_html">
+
+                    </div>
+                </div>
+                <div class="rbActiveContent rbActivethreeContent">
+                    <ul class="title bqurcontenttitle">
+                        <li class="bqurcontent-1">委托时间</li>
+                        <li class="bqurcontent-2 sepceilBQ">委托数量/已成交</li>
+                        <li class="bqurcontent-2 sepceilBQ">委托价格/成交底价</li>
+                        <li class="bqurcontent-3">成交总额</li>
+                        <li class="bqurcontent-8">类型</li>
+                        <li class="bqurcontent-7">状态</li>
+                        <li class="bqurcontent-7">订单来源</li>
+                        <!-- <li class="bqurcontent-8">操作</li> -->
+                    </ul>
+                    <div class="rightBottomContent" id="h_sell_html">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border"></div>
+    <div class="leftBox clearFloat left">
+        <div class="leftBoxLeft left">
+            <h4>盘口</h4>
+            <div class="pkTitle">
+                <ul class="clearFloat">
+                    <li class="pkTitle-1">价格(USDT)</li>
+                    <li class="pkTitle-2">数量(BTC)</li>
+                    <li class="pkTitle-3">累计(USDT)</li>
+                </ul>
+            </div>
+            <div class="border-line"></div>
+            <div class="pkContent" id="currency_sell">
+
+            </div>
+            <div class="pkContentCom clearFloat">
+                <div class="left">
+                    <span class="pkContentCom-1">$5763</span> ≈
+                    <span class="pkContentCom-2">35123</span> CNY
+                </div>
+                <div class="right">
+                    <span class="pkContentCom-3">0.51%</span>
+                    <i class="pkContentCom-4">↓</i>
+                </div>
+            </div>
+            <div class="pkContent pkContent-bottom" id="currency_buy">
+
+            </div>
+        </div>
+        <div class="leftBoxRight left">
+            <h4>实时成交</h4>
+            <div class="cjTitle">
+                <ul class="clearFloat">
+                    <li>时间</li>
+                    <li>成交价</li>
+                    <li>数量</li>
+                    <li>总额</li>
+                </ul>
+            </div>
+            <div class="border-line"></div>
+            <div class="cjContent">
+
+            </div>
+        </div>
+        <div class="leftBoxBottom left">
+            <h4 class="clearFloat">
+          <span class="left">
+            <span class="activeWt" onclick="activeRb(this,'activeWOnetContent')">限价委托</span>
+            <span onclick="activeRb(this,'activeWtowtContent')">计划委托</span>
+          </span>
+            </h4>
+            <div class="leftBoxBottomCon clearFloat activeWOnetContent">
+                <div class="lfBottomL left">
+                    <ul class="lfBottomLheader clearFloat">
+                        <li>
+                            <span class="lfBottomLheaderT">可用: </span>
+                            <i id="right_money">0</i>
+                        </li>
+                        <li>
+                            <span class="right_currency">USDT</span>
+                        </li>
+                        <li>
+                            <span class="recharge">充币</span>
+                        </li>
+                    </ul>
+                    <ul class="lfBottomLheader clearFloat">
+                        <li>
+                            <span class="lfBottomLheaderT">可买: </span>
+                            <i class="buyVal" id="right_left_money">0</i>
+                        </li>
+                        <li>
+                            <span class="left_currency">BTC</span>
+                        </li>
+                        <li>
+                            <span class="extract">提币</span>
+                        </li>
+                    </ul>
+                    <div class="lfBottomLInput">
+								<span class="lfBottomLInputWrap">
+                <span class="lfBottomLInputWrapLable">买入价</span>
+								<input type="number" value="" placeholder="(USDT)" class="money_un" id="left_un"/>
+								</span>
+                    </div>
+                    <div class="lfBottomLInput">
+								<span class="lfBottomLInputWrap">
+                <span class="lfBottomLInputWrapLable">买入量</span>
+								<input type="number" value="" placeholder="(BTC)" class="input_cr" id="left_number"
+                                       oninput="mairu(this,'0')"/>
+								</span>
+                    </div>
+                    <p class="lfBottomLsxf">
+                        <span>手续费:</span>
+                        <i id="left_sxf">0.00</i>
+                        <span class="left_currency">USDT</span>
+                    </p>
+                    <div class="percent clearFloat">
+                        <div class="left progressBoxLeft">
+                            <span class="active" data="1"></span><i>——</i><span data="2"></span><i>——</i><span
+                                data="3"></span><i>——</i><span data="4"></span><i>——</i><span data="5"></span>
+                        </div>
+                        <div class="right" style="width: 20%;text-align: right;color: #676767;">40%</div>
+                    </div>
+                    <p class="smallTips">
+                        预计交易额:
+                        <span id="left_yj">--</span>
+                        <span class="right_currency">USDT</span>
+                    </p>
+                    <div class="buyButtonBox">
+                        <button class="buyButton" onclick="add(0)">立即买入</button>
+                    </div>
+                </div>
+                <div class="lfBottomR left">
+                    <ul class="lfBottomLheader clearFloat">
+                        <li>
+                            <span class="lfBottomLheaderT">可用: </span>
+                            <i id="left_money">0</i>
+                        </li>
+                        <li>
+                            <span class="left_currency">BTC</span>
+                        </li>
+                        <li>
+                            <span class="recharge">充币</span>
+                        </li>
+                    </ul>
+                    <ul class="lfBottomLheader clearFloat">
+                        <li>
+                            <span class="lfBottomLheaderT">可卖: </span>
+                            <i class="buyVal" id="left_right_money">0</i>
+                        </li>
+                        <li>
+                            <span class="right_currency">USDT</span>
+                        </li>
+                        <li>
+                            <span class="extract">提币</span>
+                        </li>
+                    </ul>
+                    <div class="lfBottomLInput">
+								<span class="lfBottomLInputWrap">
+                <span class="lfBottomLInputWrapLable">卖出价</span>
+								<input type="number" value="" placeholder="(BTC)" class="money_un" id="right_un"/>
+								</span>
+                    </div>
+                    <div class="lfBottomLInput">
+								<span class="lfBottomLInputWrap">
+                <span class="lfBottomLInputWrapLable">卖出量</span>
+								<input type="number" value="" placeholder="(USDT)" class="input_cr"
+                                       oninput="mairu(this,'1')" id="right_number"/>
+								</span>
+                    </div>
+                    <p class="lfBottomLsxf">
+                        <span>手续费:</span>
+                        <i id="right_sxf">0.00</i>
+                        <span class="right_currency">BTC</span>
+                    </p>
+                    <div class="percent clearFloat">
+                        <div class="left progressBoxLeft">
+                            <span class="active redActive" data="1"></span><i>——</i><span data="2"></span><i>——</i><span
+                                data="3"></span><i>——</i><span data="4"></span><i>——</i><span data="5"></span>
+                        </div>
+                        <div class="right" style="width: 20%;text-align: right;color: #676767;">40%</div>
+                    </div>
+                    <p class="smallTips">
+                        预计交易额:
+                        <span id="right_yj">--</span>
+                        <span class="left_currency">USDT</span>
+                    </p>
+                    <div class="buyButtonBox">
+                        <button class="fetchButton" onclick="add(1)">立即卖出</button>
+                    </div>
+                </div>
+            </div>
+            <div class="leftBoxBottomCon clearFloat activeWtowtContent">
+                <div class="lfBottomL left">
+                    <ul class="lfBottomLheader clearFloat">
+                        <li>
+                            <span class="lfBottomLheaderT">可用: </span>
+                            <i id="right_sell_money">0</i>
+                        </li>
+                        <li>
+                            <span class="right_currency">USDT</span>
+                        </li>
+                        <li>
+                            <span class="recharge">充币</span>
+                        </li>
+                    </ul>
+                    <ul class="lfBottomLheader clearFloat">
+                        <li>
+                            <span class="lfBottomLheaderT">可买: </span>
+                            <i class="buyVal" id="right_left_sell_money">0</i>
+                        </li>
+                        <li>
+                            <span class="left_currency">BTC</span>
+                        </li>
+                        <li>
+                            <span class="extract">提币</span>
+                        </li>
+                    </ul>
+                    <div class="lfBottomLInput">
+								<span class="lfBottomLInputWrap">
+                <span class="lfBottomLInputWrapLable">委托金额</span>
+								<input type="number" value="" placeholder="(USDT)" style="width: calc(100% - 80px);"
+                                       id="right_sell_number"/>
+								</span>
+                    </div>
+                    <div class="lfBottomLInput speselfBottomLInput">
+								<span class="lfBottomLInputWrap firstWrap">
+                <input type="number" value="" placeholder="追高触发价" id="right_sell_max_sell"/>
+              </span>
+                        <span class="lfBottomLInputWrap">
+                <input type="number" value="" placeholder="追高委托价" id="right_sell_max_un"/>
+              </span>
+
+                        <span class="lfBottomLInputWrap firstWrap">
+                <input type="number" value="" placeholder="抄底触发价" id="right_sell_min_sell"/>
+              </span>
+
+                        <span class="lfBottomLInputWrap">
+                <input type="number" value="" placeholder="抄底委托价" id="right_sell_min_un"/>
+              </span>
+                    </div>
+                    <p class="lfBottomLsxf">
+                        <span>手续费:</span>
+                        <i id="right_sell_sxf">0.00</i>
+                        <span class="right_currency">USTD</span>
+                    </p>
+                    <div class="percent clearFloat">
+                        <div class="left progressBoxLeft">
+                            <span class="active" data="1"></span><i>——</i><span data="2"></span><i>——</i><span
+                                data="3"></span><i>——</i><span data="4"></span><i>——</i><span data="5"></span>
+                        </div>
+                        <div class="right" style="width: 20%;text-align: right;color: #676767;">40%</div>
+                    </div>
+                    <p class="smallTips">
+                        预计追高成交量:
+                        <span id="right_sell_money_yj_max">0.00</span>
+                        <span class="left_currency"></span>
+                    </p>
+                    <p class="smallTips">
+                        预计抄底成交量:
+                        <span id="right_sell_money_yj_min">0.00</span>
+                        <span class="left_currency"></span>
+                    </p>
+                    <div class="buyButtonBox">
+                        <button class="buyButton" onclick="addPlan(0)">立即买入</button>
+                    </div>
+                </div>
+                <div class="lfBottomR left">
+                    <ul class="lfBottomLheader clearFloat">
+                        <li>
+                            <span class="lfBottomLheaderT">可用: </span>
+                            <i id="left_sell_money">0</i>
+                        </li>
+                        <li>
+                            <span class="left_currency">BTC</span>
+                        </li>
+                        <li>
+                            <span class="recharge">充币</span>
+                        </li>
+                    </ul>
+                    <ul class="lfBottomLheader clearFloat">
+                        <li>
+                            <span class="lfBottomLheaderT">可卖: </span>
+                            <i class="buyVal" id="left_right_sell_money">0</i>
+                        </li>
+                        <li>
+                            <span class="right_currency">USDT</span>
+                        </li>
+                        <li>
+                            <span class="extract">提币</span>
+                        </li>
+                    </ul>
+                    <div class="lfBottomLInput">
+								<span class="lfBottomLInputWrap">
+                <span class="lfBottomLInputWrapLable">委托数量</span>
+								<input type="number" value="" placeholder="(BTC)" style="width: calc(100% - 80px);"
+                                       id="left_sell_number" oninput="jianting(1,this,4)"/>
+								</span>
+                    </div>
+                    <div class="lfBottomLInput speselfBottomLInput">
+								<span class="lfBottomLInputWrap firstWrap">
+                <input type="number" value="" placeholder="止盈触发价" id="left_sell_max_sell" oninput="jianting(1,this,0)"/>
+              </span>
+                        <span class="lfBottomLInputWrap">
+                <input type="number" value="" placeholder="止盈委托价" id="left_sell_max_un" oninput="jianting(1,this,1)"/>
+              </span>
+
+                        <span class="lfBottomLInputWrap firstWrap">
+                <input type="number" value="" placeholder="止损触发价" id="left_sell_min_sell" oninput="jianting(1,this,2)"/>
+              </span>
+
+                        <span class="lfBottomLInputWrap">
+                <input type="number" value="" placeholder="止损委托价" id="left_sell_min_un" oninput="jianting(1,this,3)"/>
+              </span>
+                    </div>
+                    <p class="lfBottomLsxf">
+                        <span>手续费:</span>
+                        <i id="left_sell_sxf">0.00</i>
+                        <span class="left_currency">USTD</span>
+                    </p>
+                    <div class="percent clearFloat">
+                        <div class="left progressBoxLeft">
+                            <span class="active redActive" data="1"></span><i>——</i><span data="2"></span><i>——</i><span
+                                data="3"></span><i>——</i><span data="4"></span><i>——</i><span data="5"></span>
+                        </div>
+                        <div class="right" style="width: 20%;text-align: right;color: #676767;">40%</div>
+                    </div>
+                    <p class="smallTips">
+                        预计止盈交易额:
+                        <span id="left_sell_money_yj_max">0.00</span>
+                        <span class="right_currency"></span>
+                    </p>
+                    <p class="smallTips">
+                        预计止损交易额:
+                        <span id="left_sell_money_yj_min">0.00</span>
+                        <span class="right_currency"></span>
+                    </p>
+                    <div class="buyButtonBox">
+                        <button class="fetchButton" onclick="addPlan(1)">立即卖出</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="shade"></div>
+<div class="countDownBox">
+    <div class="countDownCon">
+        <h2>B-CURRENCY.COM</h2>
+        <p>交易开盘倒计时</p>
+        <div class="countDown">
+            <span class="time" id="djs_day">00</span> 天
+            <span class="time" id="djs_xs">00</span> 时
+            <span class="time" id="djs_fz">00</span> 分
+            <span class="time seconds" id="djs_m">00</span> 秒
+        </div>
+        <p class="explain">
+            <small>交易开盘时间：</small>
+            <small id="djs_datetime"></small>
+        </p>
+    </div>
+</div>
+<div class="messageBox buyColor none">买入委托成功！</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    全部撤单
+                </h4>
+            </div>
+            <div class="modal-body" id="modal_body">
+                确定取消全部计划委托？
+            </div>
+            <div class="modal-footer">
+                <button class="btn cancleBtn" type="button" onclick="qd_update()">
+                    确定
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    取消
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<div class="choice-box">
+    <ul class="choice-header clearFloat">
+        <li class="activeChoice">自选</li>
+        <li>QC</li>
+        <li>ZB</li>
+        <li>USDT</li>
+        <li>BTC</li>
+    </ul>
+    <div>
+        <input class="choice-search" type="text" autofocus>
+    </div>
+    <ul class="choice-title clearFloat">
+        <li class="choice-1">币种名称</li>
+        <li class="choice-2">价格</li>
+        <li class="choice-3">日涨幅</li>
+        <li class="choice-4">自选</li>
+    </ul>
+    <div class="choice-content clearFloat">
+        <p class="choice-con-header">
+            <span class="main-1"></span>
+            <i>主流区</i>
+        </p>
+        <div id="currency_left_zl">
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/ye/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/ye/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- <ul class="choice-title clearFloat">
+<li class="choice-1">币种名称</li>
+<li class="choice-2">价格</li>
+<li class="choice-3">日涨幅</li>
+<li class="choice-4">自选</li>
+</ul> -->
+    <div class="choice-content clearFloat">
+        <p class="choice-con-header">
+            <span class="main-2"></span>
+            <i>主创区</i>
+        </p>
+        <div id="currency_left_zc">
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+            <ul class="clearFloat">
+                <li class="choice-1">
+                    <img src="../img/btc.png" alt="">
+                    <span>BTC</span>
+                    <i class="rgba-5">/USDT</i>
+                </li>
+                <li class="choice-2">
+                    <p>$4231</p>
+                    <p class="rgba-5">¥45632</p>
+                </li>
+                <li class="choice-3">
+                    <p class="green-5">+0.36%</p>
+                    <p class="rgba-5">$1252万</p>
+                </li>
+                <li class="choice-4">
+                    <img src="../img/ye/starNo.png" class="stratImg">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/highcharts/gui.css">
+<link rel="stylesheet" type="text/css" href="../css/highcharts/popup.css">
+<script src="../js/highcharts/highstock.js"></script>
+<script src="../js/highcharts/highstock-zh.js"></script>
+<script src="../js/highcharts/dark-unica.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/charting_library.min.js"></script>
+<script src="../js/trade.js"></script>
+<script type="text/javascript" src="../whpjs/database.js"></script>
+<script src="../js/chartConfig.js"></script>
+<script src="../whpjs/public.js"></script>
+<script src="../whpjs/tradeBQU.js"></script>
+</body>
+
+</html>

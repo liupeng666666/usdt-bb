@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>订单管理</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <link rel="stylesheet" href="../css/ye/index.css">
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+        <![endif]-->
+</head>
+<body>
+<header>
+    <div class="row">
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand logo" href="index.html">
+                            <img src="../img/logo.png">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navList">
+                            <li class="active">
+                                <a href="index.html" data-locale="daohanglan.index">币币交易</a>
+                            </li>
+                            <li>
+                                <a href="FaBiJiaoYi-Wygm.html" data-locale="daohanglan.bihangqing">OBV交易</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-locale="daohanglan.remenjiaoyi"
+                                   data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">法币交易
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu hotTitle">
+                                    <li>
+                                        <a href="hotTradeCharts.html"
+                                           data-locale="daohanglan.remenjiaoyiyuan">OTH交易</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="followProfit.html" data-locale="daohanglan.gensuizhe">热门交易</a>
+                            </li>
+                            <li>
+                                <a href="tradeEndDynamic.html" data-locale="daohanglan.jiaoyidongtai">聊天室</a>
+                            </li>
+                            <li>
+                                <a href="chatRoom.html" data-locale="daohanglan.liaotianshi">新闻快讯</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" id="sub_user_info">
+                            <li class="nav-order">
+                                <a href="order-list-OBV.html">
+                                    <i class="fas fa-clipboard-list"></i>订单</a>
+                            </li>
+                            <li class="nav-assets">
+                                <a href="user-assets.html" class="dropdown-toggle-hover">
+                                    <i class="fas fa-wallet"></i>资产</a>
+                                <div class="assets-pop assets-popMain">
+                                    <div class="poptitle">账户资产折算:
+                                        <span>总资产
+												<i>4257.32</i>CNY</span>
+                                        <span>净资产
+												<i>45257.23</i>CNY</span>
+                                    </div>
+                                    <ul class="assetsUl">
+                                        <li>
+                                            <i></i>现货账户
+                                        </li>
+                                        <li>
+                                            <i></i>OTCH账户
+                                        </li>
+                                        <li>
+                                            <i></i>法币账户
+                                        </li>
+                                        <li class="active">
+                                            <i></i>币币账户
+                                        </li>
+                                    </ul>
+                                    <div class="sizeFont">
+											<span>币币资产折算:
+												<i>4732983.CNY</i>
+											</span>
+                                        <span class="rightFont">
+												<div class="rightBoxf">隐藏0币种资产</div>
+												<div class="radioBox">
+													<input type="checkbox" class="widget_switch_checkbox"
+                                                           id="widget_switch_checkbox">
+													<label for="widget_switch_checkbox" class="widget_switch_label">
+														<span class="widget_switch_circle"></span>
+													</label>
+												</div>
+											</span>
+                                    </div>
+                                    <table class="table-light" cellspacing="0" width="100%">
+                                        <thead>
+                                        <tr>
+                                            <th>币种</th>
+                                            <th>可用</th>
+                                            <th>冻结</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>BTC</td>
+                                            <td class="redFont">0.00000</td>
+                                            <td>0.00000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BCH</td>
+                                            <td class="redFont">0.00000</td>
+                                            <td>0.00000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>USDT</td>
+                                            <td class="redFont">0.00000</td>
+                                            <td>0.00000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>LTC</td>
+                                            <td class="redFont">0.00000</td>
+                                            <td>0.00000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ETH</td>
+                                            <td class="redFont">0.00000</td>
+                                            <td>0.00000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>EOS</td>
+                                            <td class="redFont">0.00000</td>
+                                            <td>0.00000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BRU</td>
+                                            <td class="redFont">0.00000</td>
+                                            <td>0.00000</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="assets-pop-footer">
+                                        <a href="user-assets.html">资产管理</a>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="nav-item nav-profile dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+                                   id="profileDropdown">
+                                    <img src="../img/face1.jpg" alt="profile"/>
+                                    <span class="nav-profile-name">156****1670</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu  navbar-dropdown">
+                                    <a href="">
+                                        菜单
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+										<span class="circleBtn">中文
+											<span class="caret"></span>
+										</span>
+                                </a>
+                                <ul class="dropdown-menu language">
+                                    <li>
+                                        <a href="javascript:chooselanguage(1)">中文</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:chooselanguage(2)">English</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="full-menu">
+    <div class="row">
+        <div class="container">
+            <ul>
+                <li>订单管理</li>
+                <li>
+                    <a href="order-list-OBV.html">OBV交易订单</a>
+                </li>
+                <li>
+                    <a href="order-list-fabi.html">法币交易订单</a>
+                </li>
+                <li>
+                    <a href="order-list-BB.html">OTCH交易订单</a>
+                </li>
+                <li class="active">
+                    <a href="order-list-BB.html">币币委托订单</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="personalDetailsBox">
+    <div class="row">
+        <div class="container bbtitle">当前交易对:
+            <span>USDT/BTC</span>
+        </div>
+        <div class="container headerContent">
+            <ul class="bbHeaderUl">
+                <li class="dropdown">委托类型:
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" id="plan" data="0">
+                            限价委托
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#" class="USDTA" onclick="qiehuan('2','0',this)">限价委托</a>
+                            </li>
+                            <li>
+                                <a href="#" class="USDTB" onclick="qiehuan('2','1',this)">计划委托</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="date_pickerBox">
+                        委托时间:从
+                        <input type="text" class="date_picker" value="" id="start"> 到
+                        <input type="text" class="date_picker" value="" id="end">
+                    </div>
+                </li>
+                <li class="dropdown">交易类型:
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" id="type" data="">
+                            不限
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#" onclick="qiehuan('0','0',this)">买单</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="qiehuan('0','1',this)">卖单</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown">交易状态:
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" id="state" data="">
+                            不限
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu menuA">
+                            <li class="menuAClass">
+                                <a href="#" onclick="qiehuan('1','1',this)">部分成交</a>
+                            </li>
+                            <li class="menuBClass">
+                                <a href="#" onclick="qiehuan('1','1',this)">部分委托</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="qiehuan('1','2',this)">已完成</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="qiehuan('1','3',this)">已取消</a>
+                            </li>
+                            <li class="menuAClass">
+                                <a href="#" onclick="qiehuan('1','0',this)">待成交</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="searvhbox" style="color: #fa8a01;" onclick="bb_sell_plan()">
+                    <button:after {border: none;} style="cursor:pointer; background-color:#000000;">搜索</button>
+                </li>
+            </ul>
+        </div>
+        <div class="container postwrap yepostwrap">
+            <div>
+                <div class="tabwrap">
+                    <div class="tab-content">
+                        <div class="yeTabWrap active" id="USDT-A">
+                            <div id="" class="table-responsive">
+                                <table class="table table-hover table-striped table-dark table-order-dark"
+                                       cellspacing="0" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th class="sTh">委托时间</th>
+                                        <th>委托数量/已成交</th>
+                                        <th>委托价格/成交底价</th>
+                                        <th>成交总额</th>
+                                        <th class="sTh">类型</th>
+                                        <th class="sTh">状态</th>
+                                        <th class="sTh">订单来源</th>
+                                        <th class="sTh">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="sell_center">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="yeTabWrap" id="USDT-B">
+                            <div id="" class="table-responsive">
+                                <table class="table table-hover table-striped table-dark table-order-dark"
+                                       cellspacing="0" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th class="sTh">委托时间</th>
+                                        <th>委托量</th>
+                                        <th>触发价格</th>
+                                        <th>委托价格</th>
+                                        <th class="sTh">真实触发价</th>
+                                        <th class="sTh">状态</th>
+                                        <th class="sTh">订单来源</th>
+                                        <th class="sTh">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="plan_center">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- /.tabwrap -->
+                <div class="pageBox">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination" id="center_fy">
+                            <li id="prev_page">
+                                <a href="">上一页</a>
+                            </li>
+                            <li id="page_1">
+                                <a href="">1</a>
+                            </li>
+                            <li id="page_2">
+                                <a href="">2</a>
+                            </li>
+                            <li id="page_3">
+                                <a href="">3</a>
+                            </li>
+                            <li id="next_page">
+                                <a href="">下一页</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- /.pageBox -->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+</div>
+</div>
+<footer>
+    <div class="row no-gutter">
+        <div class="container">
+            <div class="footerInfor">
+
+                <div class="col-md-2" style="width: 15%;">
+                    <h3 data-locale="footer.jinrongkeji">金融科技</h3>
+                    <ul>
+                        <li>
+                            <a href="bottomPage.html?level=p2_1&less=p2_1_1"
+                               data-locale="footer.jinrongkeji1">交易员体系</a>
+                        </li>
+                        <li>
+                            <a href="bottomPage.html?level=p2_1&less=p2_1_2"
+                               data-locale="footer.jinrongkeji2">数据分析系统</a>
+                        </li>
+                        <li>
+                            <a href="bottomPage.html?level=p2_1&less=p2_1_3"
+                               data-locale="footer.jinrongkeji3">兼容性在线交易</a>
+                        </li>
+                        <li>
+                            <a href="">深资交易员推荐</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2" style="width: 15%;">
+                    <h3 data-locale="footer.bangzhuzhongxin">帮助中心</h3>
+                    <ul>
+                        <li>
+                            <a href="helpPage.html?level=userGuide" data-locale="footer.bangzhuzhongxin1">用户操作指南</a>
+                        </li>
+                        <li>
+                            <a href="helpPage.html?level=followStrategy"
+                               data-locale="footer.bangzhuzhongxin2">跟随策略</a>
+                        </li>
+                        <li>
+                            <a href="helpPage.html?level=commProblem" data-locale="footer.bangzhuzhongxin3">常见问题</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2" style="width: 15%;">
+                    <h3 data-locale="footer.guanyuwomen">关于我们</h3>
+                    <ul>
+                        <li>
+                            <a href="bottomPage.html?level=p3_1&less=p3_1_1"
+                               data-locale="footer.guanyuwomen1">公司简介</a>
+                        </li>
+                        <li>
+                            <a href="#" data-locale="footer.guanyuwomen2">热门活动</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3 data-locale="footer.lianxiwomen">联系我们</h3>
+                    <div>
+                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=834955250&site=qq&menu=yes">
+                            <img border="0" src="../img/QQ.png" alt="你好，您现在可以向我直接临时会话了，更多资讯请加好友！"
+                                 title="你好，您现在可以向我直接临时会话了，更多资讯请加好友！"/>
+                        </a>
+                        <img src="../img/email.png" onclick="emailTanChu()">
+                        <a href="">
+                            <img src="../img/wei.png">
+                        </a>
+                        <a target="_blank" href="https://weibo.com/u/6387468943">
+                            <img src="../img/weibo.png">
+                        </a>
+                        <a href="">
+                            <img src="../img/telegram.png">
+                        </a>
+                        <a target="_blank" href="https://twitter.com/Bcurrency1">
+                            <a target="_blank" href="https://twitter.com/Bcurrency1">
+                                <img src="../img/twitter.png">
+                            </a>
+                        </a>
+                        <img src="../img/facebook.png">
+                    </div>
+                </div>
+            </div>
+            <div class="friendship">
+                <span>友情链接：</span>
+                <a href="#">区块链财经</a>
+                <a href="#">场外OTC法币交易所</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="http://www.jq22.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="../js/jquery.date_input.pack.js"></script>
+<script src="../js/tradePage.js"></script>
+<script type="text/javascript" src="../js/iCheck/js/icheck.min.js"></script>
+<!--	<script type="text/javascript" src="../js/custom.js"></script>-->
+<script>
+    $(function () {
+        $('.USDTA').click(function () {
+            $('#USDT-A').show();
+            $('#USDT-B').hide();
+            $('.menuBClass').hide();
+            $('.menuAClass').show();
+        });
+        $('.USDTB').click(function () {
+            $('#USDT-B').show();
+            $('#USDT-A').hide();
+            $('.menuBClass').show();
+            $('.menuAClass').hide();
+        });
+    });
+</script>
+<script src="../whpjs/public.js"></script>
+<script src="../whpjs/order-list-BB.js"></script>
+</body>

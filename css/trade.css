@@ -1,0 +1,891 @@
+@charset "UTF-8";
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.countDownBox {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 999;
+    width: 406px;
+    height: 266px;
+    margin-left: -203px;
+    margin-top: -133px;
+    background-color: #3f4247;
+    border-radius: 10px;
+}
+
+.countDownBox h2 {
+    display: flex;
+    justify-content: center;
+    margin: 36px auto 10px;
+    font-family: "MicrosoftYaHei";
+    font-size: 36px;
+    line-height: 42px;
+    color: #ffffff;
+    background-image: -webkit-linear-gradient(bottom, yellow, #fd8403, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.countDownBox p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 42px;
+    font-size: 24px;
+}
+
+.countDownBox .countDown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.countDownBox .countDown .time {
+    margin: 0 8px;
+    width: 52px;
+    text-align: center;
+    line-height: 52px;
+    background-color: #000000;
+    border-radius: 4px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.countDownBox .countDown .time.seconds {
+    background-color: #ff8d00;
+}
+
+.countDownBox p.explain small {
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+.shade {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 888;
+}
+
+.headerSecond {
+    float: left;
+    height: 68px;
+    line-height: 68px;
+    padding: 0 14px;
+}
+
+.headerSecond img {
+    width: 30px;
+    height: 30px;
+}
+
+.headerSecond span {
+    font-size: 15px;
+}
+
+.dropdown {
+    height: 100%;
+}
+
+.dingdan, .zichan {
+    float: right;
+    height: 68px;
+    line-height: 68px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.rightBox h4 {
+    margin: 0;
+    padding: 0 25px;
+    line-height: 40px;
+    /* line-height: 4.5rem; */
+    background-color: #3f4348;
+    color: #aba7a7;
+}
+
+.rightBox h4:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.header-left {
+    float: left;
+}
+
+.header-right {
+    float: right;
+}
+
+.rightBox span {
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.rightBox button {
+    color: #aba7a7;
+    border: 1px solid #aba7a7;
+    background-color: rgba(171, 167, 167, 0.3);
+    padding: 4px 15px;
+    margin-top: -4px;
+}
+
+.rightBox span.active-line {
+    color: #fa8a01;
+}
+
+.rightBox button.active-btn {
+    color: #000;
+    background-color: #fff;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearFloat {
+    margin-bottom: 0;
+}
+
+.clearFloat:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.rightTopHeader {
+    /* height: 68px;
+    line-height: 68px; */
+    height: 40px;
+    line-height: 40px;
+    padding: 0 25px;
+    background-color: #2e3237;
+}
+
+.lineBtn {
+    padding: 0 10px;
+}
+
+.rTime {
+    font-size: 14px;
+}
+
+.rTime i {
+    display: inline-block;
+    line-height: 22px;
+    min-width: 78px;
+    padding: 8px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.rTime i.activeTime {
+    background-color: #fa8a01;
+    border-radius: 4px;
+}
+
+.left-top, .left-bottom {
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+}
+
+.left-top i {
+    color: #3ca16d;
+}
+
+.left-bottom span {
+    color: #ccc;
+}
+
+.left-bottom i {
+    color: #fff;
+}
+
+.leftBoxLeft, .leftBoxRight {
+    width: 50%;
+    background-color: #2e3237;
+}
+
+.rbTitleLeft span {
+    display: inline-block;
+    line-height: 40px;
+    margin-right: 40px;
+}
+
+.rbTitleLeft span.rbActiveTitle {
+    color: #fa8a01;
+    border-bottom: 2px solid #fa8a01;
+}
+
+.rbTitleRight span.moreRecord {
+    margin-right: 40px;
+    text-decoration: underline;
+}
+
+.border {
+    width: 1px;
+    height: calc(100vh - 80px);
+    float: left;
+    background-color: #252a44;
+}
+
+.pkTitle ul, .cjTitle ul {
+    padding: 10px 0;
+}
+
+.pkTitle li, .cjTitle li, .pkContent li {
+    float: left;
+    width: 33%;
+    text-align: center;
+    color: #b8b8b8;
+}
+
+.cjTitle li {
+    width: 25%;
+}
+
+.border-line {
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+    opacity: 0.1;
+}
+
+.pkContent {
+    margin: 10px 0 6px;
+    height: 170px;
+    overflow: auto;
+}
+
+/*滚动条样式*/
+.leftBox .pkContent::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+    border-color: #33363e;
+}
+
+.leftBox .pkContent::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #656565;
+}
+
+.leftBox .pkContent::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    background-color: #33363e;
+    /* background: #656565; */
+}
+
+.pkContent ul {
+    position: relative;
+}
+
+.pkContent li {
+    /* padding: 0 9px 14px; */
+    padding: 0 9px 14px 8px;
+}
+
+.pkContent li.pkContent-1 {
+    color: #fe5c5c;
+    text-align: left;
+    padding-right: 0;
+}
+
+.pkContent li.pkContent-2 {
+    color: #fff;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pkContent li.pkContent-3 {
+    text-align: right;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pkContent li.pkContent-4 {
+    position: absolute;
+    right: 0;
+    width: 66%;
+    height: 20px;
+    background-color: #fe5c5c;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.pkContent-bottom li.pkContent-1 {
+    color: #0cb14e;
+}
+
+.pkContent-bottom li.pkContent-4 {
+    background-color: #4d8078;
+}
+
+.pkContentCom {
+    padding: 0 20px 0 40px;
+    line-height: 30px;
+    border-bottom: 1px solid rgba(88, 94, 120, 0.12);
+    background-color: rgba(88, 94, 120, 0.12);
+}
+
+.pkContentCom-1, .pkContentCom-3, .pkContentCom-4 {
+    font-size: 18px;
+    color: #fe5c5c;
+}
+
+.cjContent {
+    margin-top: 10px;
+    height: 405px;
+    overflow: hidden;
+}
+
+.cjContent {
+    overflow-y: auto;
+}
+
+.cjContent li {
+    float: left;
+    width: 25%;
+    padding: 0 12px 14px;
+    text-align: center;
+}
+
+.cjContent .cjContent-2 {
+    color: #4ba07b;
+}
+
+.cjContent .cjContent-3, .cjContent .cjContent-4 {
+    color: #fff;
+    opacity: 0.5;
+}
+
+.leftBoxBottom {
+    width: 100%;
+}
+
+.leftBoxBottom h4 span {
+    display: inline-block;
+    line-height: 40px;
+    margin-right: 40px;
+}
+
+.leftBoxBottom h4 span.activeWt {
+    color: #fa8a01;
+    border-bottom: 2px solid #fa8a01;
+}
+
+.lfBottomL, .lfBottomR {
+    width: 50%;
+    padding: 0 20px;
+}
+
+.leftBoxBottomCon {
+    height: calc(100vh - 640px);
+    background-color: #2e3237;
+    display: none;
+}
+
+.activeWOnetContent {
+    display: block;
+}
+
+.lfBottomLheader {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.lfBottomLheader li {
+    float: left;
+    width: 25%;
+    color: #6f6f6f;
+}
+
+.lfBottomLheader li:first-child {
+    width: 50%;
+}
+
+.lfBottomLheader li:last-child {
+    text-align: right;
+}
+
+.lfBottomLheader i {
+    color: #fe5c5c;
+}
+
+.lfBottomLheaderT {
+    color: #fff;
+}
+
+.extract {
+    color: #fe5c5c;
+}
+
+.lfBottomLheader li .buyVal {
+    color: #6f6f6f;
+}
+
+input {
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+
+.lfBottomLInputWrap {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid rgba(238, 238, 238, 0.3);
+}
+
+.lfBottomLInputWrap span, .lfBottomLInputWrap input {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.lfBottomLInputWrap input {
+    width: calc(100% - 64px);
+    margin-left: -4px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.lfBottomLInputWrap input:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.lfBottomLInputWrap span {
+    border-right: 1px solid rgba(238, 238, 238, 0.3);
+    background-color: #43464a;
+}
+
+.lfBottomLInputWrapLable {
+
+}
+
+.speselfBottomLInput .lfBottomLInputWrap {
+    width: 46%;
+}
+
+.speselfBottomLInput .lfBottomLInputWrap input {
+    width: 100%;
+}
+
+.firstWrap {
+    margin-right: 6%;
+}
+
+.lfBottomLsxf {
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.lfBottomLsxf i {
+    color: #fff;
+}
+
+.progress {
+    width: 80%;
+    height: 8px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.progressBoxLeft {
+    overflow: hidden;
+    width: 80%;
+    height: 15px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.progressBoxLeft span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #676767;
+    float: left;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.progressBoxLeft .active {
+    width: 15px;
+    height: 15px;
+    background: #4b9f7b;
+    margin-top: 0px;
+}
+
+.progressBoxLeft .redActive {
+    background: #fe5c5c;
+}
+
+.progressBoxLeft i {
+    float: left;
+    line-height: 7px;
+    color: #676767;
+    margin-top: 3px;
+}
+
+.progress-bar {
+    background-color: #4ba07b;
+}
+
+.fetch.progress .progress-bar {
+    background-color: #fe5c5c;
+}
+
+.smallTips {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.smallTips span {
+    padding: 0 20px 0 10px;
+}
+
+.buyButton, .fetchButton {
+    width: 100%;
+    border: none;
+    height: 35px;
+    color: #fff;
+    background: #4b9f7b;
+}
+
+.fetchButton {
+    background: #fe5c5c;
+}
+
+#dxtBox, #sxtBox {
+    background-color: #21202d;
+}
+
+.pkContent li.pkContent-per-80 {
+    width: 60%;
+}
+
+.pkContent li.pkContent-per-60 {
+    width: 50%;
+}
+
+.pkContent li.pkContent-per-40 {
+    width: 40%;
+}
+
+.pkContent li.pkContent-per-20 {
+    width: 20%;
+}
+
+.recharge {
+    color: #4ba07b;
+}
+
+.pkContentCom .activeTop {
+    color: #0cb14e;
+}
+
+.messageBox {
+    position: fixed;
+    bottom: 200px;
+    left: 50%;
+    margin-left: -113px;
+    padding: 28px 50px;
+    font-size: 18px;
+    z-index: 999;
+}
+
+.buyColor {
+    background-color: #4ba07b;
+}
+
+.sellColor {
+    background-color: #fe5c5c;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 390px;
+        margin: 30px auto;
+    }
+}
+
+.cancleBtn {
+    color: #fff;
+    background-color: #fd8d0a;
+}
+
+.modal-dialog {
+    top: 50%;
+    margin-top: -87px !important;
+}
+
+.modal-content {
+    color: #333;
+}
+
+.modal-body {
+    color: #666;
+}
+
+.choice-box {
+    position: fixed;
+    top: 110px;
+    left: -372px;
+    padding: 10px;
+    height: calc(100% - 100px);
+    overflow: hidden;
+    background-color: #2e3237;
+    border: 1px solid #3f4247;
+    z-index: 9999999999;
+    overflow-y: auto;
+}
+
+.choice-box::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+
+.choice-box::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #656565;
+}
+
+.choice-box::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    /* background: #656565; */
+}
+
+.choice-header {
+
+}
+
+.choice-header li {
+    float: left;
+    padding: 6px 16px;
+    cursor: pointer;
+}
+
+.choice-search {
+    display: block;
+    width: 100%;
+    line-height: 36px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-indent: 16px;
+    background-color: #171b2b;
+}
+
+.choice-content {
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.choice-content p {
+    margin-bottom: 0;
+}
+
+.choice-content img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+}
+
+.choice-title {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.choice-title ul, .choice-content ul {
+    margin-top: 10px;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.choice-title li, .choice-content li {
+    float: left;
+    cursor: pointer;
+}
+
+.choice-content ul:hover {
+    border-radius: 4px;
+    background-color: rgba(85, 90, 97, 0.5);
+}
+
+.choice-title li {
+    padding: 6px 0;
+    line-height: 40px;
+}
+
+.choice-1 {
+    width: 40%;
+    padding-left: 6px;
+    line-height: 40px;
+}
+
+.choice-2 {
+    width: 25%;
+}
+
+.choice-3 {
+    width: 25%;
+}
+
+.choice-4 {
+    width: 10%;
+    line-height: 40px;
+}
+
+.choice-1 i {
+    font-size: 12px;
+}
+
+.choice-con-header span, .choice-con-header i {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main-1, .main-2 {
+    width: 6px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+.main-1 {
+    background-color: #fa8a01;
+}
+
+.main-2 {
+    background-color: #fa8a01;
+}
+
+.exchange {
+    height: 68px;
+    margin-left: 20px;
+}
+
+.exchange p {
+    margin-bottom: 0;
+}
+
+.exchange p:first-child {
+    margin-top: 4px;
+}
+
+.dollar {
+    font-size: 21px;
+    color: #ff6811;
+}
+
+.rmb {
+    font-size: 16px;
+    text-align: center;
+}
+
+.activeChoice {
+    background-color: #fa8a01;
+    border-radius: 4px;
+}
+
+.rgba-5 {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.green-5 {
+    color: #05fa6b;
+}
+
+.rbActiveContent {
+    display: none;
+}
+
+.rbActiveoneContent {
+    display: block;
+}
+
+.lfBottomL, .lfBottomR {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.lfBottomL::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+
+.lfBottomL::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #656565;
+}
+
+.lfBottomL::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    /* background: #656565; */
+}
+
+.lfBottomR::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+
+.lfBottomR::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #656565;
+}
+
+.lfBottomR::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    /* background: #656565; */
+}
+
+.buyButtonBox {
+    margin-bottom: 30px;
+}
+
+.highcharts-bindings-wrapper {
+    display: none !important;
+}
+
+.zichan i {
+    margin-right: 8px;
+}
+
+.dingdan i {
+    margin-right: 8px;
+}

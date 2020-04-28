@@ -1,0 +1,31 @@
+.pane-legend-line {
+    display: inline;
+    cursor: default;
+    pointer-events: none !important;
+    font-size: 11px !important;
+}
+
+.pane-legend-line span {
+    color: #fff;
+}
+
+.pane-legend-line.pane-legend-wrap.study > .pane-legend-line {
+    font-size: 11px !important;
+    color: #fff !important;
+}
+
+.pane-legend-icon-container {
+    display: none !important;
+}
+
+.pane-legend-line > .main {
+    display: none !important;
+}
+
+.pane-legend .pane-legend-minbtn {
+    display: none;
+}
+
+.pane-legend-line.pane-legend-wrap.study > .apply-overflow-tooltip {
+    display: none;
+}
